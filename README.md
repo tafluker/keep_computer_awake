@@ -4,7 +4,9 @@
 #Make sure notepad is closed when you run the powershell file
 
 #Change the line below to point to your notepad program on your computer. 
+
 #If you have trouble message me on TikTok
+
 Start-Process "C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_11.2210.5.0_x64__8wekyb3d8bbwe\Notepad\Notepad"
 
 $wshell = New-Object -ComObject wscript.shell;
