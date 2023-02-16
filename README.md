@@ -9,46 +9,46 @@
 
 #COPY EVERYTHING BELOW THIS LINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-Start-Process "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Notepad"
+    Start-Process "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Accessories\Notepad"
 
-$wshell = New-Object -ComObject wscript.shell; $wshell.AppActivate('notepad')
+    $wshell = New-Object -ComObject wscript.shell; $wshell.AppActivate('notepad')
 
-Sleep 1
+    Sleep 1
 
-for ($i = 0; $i -lt 20011; $i++) { 
+    for ($i = 0; $i -lt 20011; $i++) { 
 
-    $wshell.AppActivate('notepad') 
+        $wshell.AppActivate('notepad') 
 
-    $wshell.SendKeys("I will stay awake") 
+        $wshell.SendKeys("I will stay awake") 
 
-    Sleep 1 
+        Sleep 1 
 
-    for ($i = 0; $i -lt 17; $i++) { 
+        for ($i = 0; $i -lt 17; $i++) { 
+
+            $notepad = Get-Process notepad -ErrorAction SilentlyContinue 
+
+            if ($notepad -eq $null) { 
+
+                break 
+
+            } 
+
+            Write-Host('running') $wshell.AppActivate('notepad') 
+
+            $wshell.SendKeys("{BACKSPACE}") 
+
+            Sleep 1 
+
+        } 
 
         $notepad = Get-Process notepad -ErrorAction SilentlyContinue 
 
         if ($notepad -eq $null) { 
 
-            break 
+            Write-Host('quit') break 
 
         } 
 
-        Write-Host('running') $wshell.AppActivate('notepad') 
+        Write-Host('running') 
 
-        $wshell.SendKeys("{BACKSPACE}") 
-
-        Sleep 1 
-
-    } 
-
-    $notepad = Get-Process notepad -ErrorAction SilentlyContinue 
-
-    if ($notepad -eq $null) { 
-
-        Write-Host('quit') break 
-
-    } 
-
-    Write-Host('running') 
-
-}
+    }
